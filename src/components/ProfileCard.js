@@ -1,14 +1,15 @@
 
+//destructured props object
+let ProfileCard = ({img,name,twitterHandle,description}) => {
 
-let ProfileCard = (props) => {
     return (
         <div >
             <div className="card">
-                <img src={props.img} className="card-img-top"/>
+                <img src={img} className="card-img-top"/>
                 <div className="card-body">
-                    <h5>{props.name}</h5>
-                    <h6>{props.twitterHandle}</h6>
-                    <p>{props.description}</p>
+                    <h5>{name}</h5>
+                    <h6>{twitterHandle}</h6>
+                    <p>{description}</p>
                 </div>
             </div>
         </div>
