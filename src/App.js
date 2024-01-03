@@ -4,6 +4,7 @@ import CortanaImage from './images/cortana.png';
 import SiriImage from './images/siri.png';
 import AnimalShow from "./components/AnimalShow";
 import {useState} from "react";
+import './App.css';
 
 let App = () => {
     const getRandmonAnimal = () => {
@@ -21,7 +22,7 @@ let App = () => {
     });
 
     return (
-        <div className="container">
+        <div className="app">
             {/*<ProfileCard img={SiriImage} name={'Facebook'} twitterHandle={'TheZuck'} description={facebookMsg}/>*/}
             <button onClick={handleClick}>Add Animal</button>
             <div>{renderAnimals}</div>

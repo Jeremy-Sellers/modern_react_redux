@@ -6,23 +6,32 @@ import dog from "../images/dog.svg"
 import gator from "../images/gator.svg"
 import heart from "../images/heart.svg"
 import horse from "../images/horse.svg"
+import '../AnimalShow.css'
 
+const svgMap = {
+    bird,
+    cat,
+    cow,
+    dog,
+    gator,
+    horse
+}
 
 
 let AnimalShow = ({type}) => {
-    const svgMap = {
-        bird,
-        cat,
-        cow,
-        dog,
-        gator,
-        horse
-    }
+    const [clicks, setClicks] = useState(0);
+
+   const handleClick = () => {
+       setClicks(clicks + 1);
+   }
 
     return (
 
-       <div>
+       <div onClick={handleClick}>
            <img alt="animal" src={svgMap[type]}/>
+           <img alt="heart"
+                src={heart}
+                style={{width: 10 + 10 * clicks + 'px'}}/>
        </div>
     )
 }
