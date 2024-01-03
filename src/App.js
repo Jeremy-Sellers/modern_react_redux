@@ -1,16 +1,31 @@
 import ProfileCard from "./components/ProfileCard";
+import AlexaImage from './images/alexa.png';
+import CortanaImage from './images/cortana.png';
+import SiriImage from './images/siri.png';
+import AnimalShow from "./components/AnimalShow";
+import {useState} from "react";
 
 let App = () => {
-    const amazonMsg = 'We used to sell books but now we sell everything';
-    const googleMsg = 'We track billions of google searches';
-    const facebookMsg = 'Yeah we have all of your data';
-    const imgUrl = 'https://placehold.jp/150x150.png';
+    const getRandmonAnimal = () => {
+        const animals = ['bird','cat','dog','cow','horse','gator'];
+        return animals[Math.floor(Math.random() * animals.length)]
+    }
+    const [animals, setAnimals] = useState([])
+
+    const handleClick = () => {
+        setAnimals([...animals,getRandmonAnimal()]);
+    }
+
+    const renderAnimals = animals.map((animal, index) => {
+        return <AnimalShow type={animal} key={index}/>
+    });
+
     return (
         <div className="container">
-            <h2>Personal Digital Assistants</h2>
-           <ProfileCard img={imgUrl} name={'Amazon'} twitterHandle={'Bezos'} description={amazonMsg}/>
-            <ProfileCard img={imgUrl} name={'Google'} twitterHandle={'Gaggle'} description={googleMsg}/>
-            <ProfileCard img={imgUrl} name={'Facebook'} twitterHandle={'TheZuck'} description={facebookMsg}/>
+            {/*<ProfileCard img={SiriImage} name={'Facebook'} twitterHandle={'TheZuck'} description={facebookMsg}/>*/}
+            <button onClick={handleClick}>Add Animal</button>
+            <div>{renderAnimals}</div>
+
         </div>
     )
 }
