@@ -25,7 +25,7 @@ let App = () => {
         <div className="app">
             {/*<ProfileCard img={SiriImage} name={'Facebook'} twitterHandle={'TheZuck'} description={facebookMsg}/>*/}
             <button onClick={handleClick}>Add Animal</button>
-            <div>{renderAnimals}</div>
+            <div className='animal-list'>{renderAnimals}</div>
 
         </div>
     )
